@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>List Product</title>
+	<link rel="stylesheet" th:href="@{/admin/vendors/simple-line-icons/css/simple-line-icons.css}">
+	<link rel="stylesheet" th:href="@{/admin/css/style.css}">
+	<link rel="stylesheet" th:href="@{/admin/vendors/css/vendor.bundle.base.css}">
+	<link rel="stylesheet" th:href="@{/admin/font-awesome/css/font-awesome.min.css}">
+	<style type="text/css">
+		.edit{margin-right: 20px}
+	</style>
+</head>
+<body>
+	<div class="container-scroller">
+		<!-- partial:partials/_navbar.html -->
+		<nav class="navbar default-layout-navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row" th:insert="~{admin/common/navbar.html :: navbar}">
+		</nav>
+
+		<div class="container-fluid page-body-wrapper">
+		
+			<!-- partial:partials/_sidebar.html -->
+			<nav class="sidebar sidebar-offcanvas" id="sidebar" th:insert="~{admin/common/sidebar.html :: sidebar}">
+			</nav>
+			
+			<div class="main-panel">
+				<div class="content-wrapper">
+					<div class="page-header">
+						<h3 class="page-title"> Basic Tables</h3>
+						<nav aria-label="breadcrumb">
+						  <ol class="breadcrumb">
+							<li class="breadcrumb-item"><a href="#">Tables</a></li>
+							<li class="breadcrumb-item active" aria-current="page">Basic tables</li>
+						  </ol>
+						</nav>
+					</div>
+					<div class="row">
+						<div class="col-lg-12">
+							<a th:href="@{/admin/san-pham}">Thêm sản phẩm</a>
+						</div>
+						<div class="col-lg-12 grid-margin stretch-card">
+			               <div class="card">
+			                 <div class="card-body">
+			                   <h4 class="card-title">Striped Table</h4>
+			                   <p class="card-description"> Add class <code>.table-striped</code>
+			                   </p>
+			                   <table class="table table-striped">
+			                     <thead>
+			                       <tr>
+			                         <th> Tên sản phẩm </th>
+			                         <th> Ảnh </th>
+			                         <th> pricesale </th>
+			                         <th> Price </th>
+			                         <th> Screen </th>
+			                         <th> Thao tác </th>
+			                       </tr>
+			                     </thead>
+			                     <tbody>
+			                       <tr th:each="product : ${listProduct}">
+			                         <td class="py-1"><p th:text="${product.getNamePhone()}"></p></td>
+			                         <td><img th:src="@{~/images/{thumb}(thumb=${product.getImage()})}" class="card img-fluid" width="50" height="50" alt=""/></td>
+			                         <td> <p th:text="${product.getPriceSale()}"></p> </td>
+			                         <td><p th:text="${product.getPrice()}"></p></td>
+			                         <td> <p th:text="${product.getScreen()}"></p> </td>
+			                       	 <td>
+			                       	 	<a href="" title="Sửa" class="edit"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
+			                       	 	<a href="" title="Xóa"><i class="fa fa-trash" aria-hidden="true"></i></a>
+			                       	 </td>
+			                       </tr>
+			                     </tbody>
+			                   </table>
+			                 </div>
+			               </div>
+              			</div>
+					</div>
+				</div>
+			</div>
+			
+		</div>
+	</div>
+	
+	
+	<script th:src="@{vendors/js/vendor.bundle.base.js}"></script>
+	<script th:src="@{./js/dashboard.js}"></script>
+</body>
+</html>

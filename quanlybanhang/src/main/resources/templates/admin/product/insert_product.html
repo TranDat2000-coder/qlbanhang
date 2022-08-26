@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert product</title>
+	<link rel="stylesheet" th:href="@{/admin/vendors/simple-line-icons/css/simple-line-icons.css}">
+	<link rel="stylesheet" th:href="@{/admin/css/style.css}">
+	<link rel="stylesheet" th:href="@{vendors/css/vendor.bundle.base.css}">
+</head>
+<body>
+	<div class="container-scroller">
+	
+		<!-- partial:partials/_navbar.html -->
+		<nav class="navbar default-layout-navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row" th:insert="~{admin/common/navbar.html :: navbar}">
+		</nav>
+		
+		<div class="container-fluid page-body-wrapper">
+		
+			<!-- partial:partials/_sidebar.html -->
+			<nav class="sidebar sidebar-offcanvas" id="sidebar" th:insert="~{admin/common/sidebar.html :: sidebar}">
+			</nav>
+			
+			<div class="main-panel">
+				<div class="content-wrapper">
+					<div class="page-header">
+						<h3 class="page-title"> Form elements </h3>
+						<nav aria-label="breadcrumb">
+							<ol class="breadcrumb">
+								<li class="breadcrumb-item"><a href="#">Forms</a></li>
+								<li class="breadcrumb-item active" aria-current="page">Form elements</li>
+							</ol>
+						</nav>
+				   </div>
+				   <form th:action="@{/admin/san-pham}" class="forms-sample" method="POST" th:object="${products}" enctype="multipart/form-data">
+					<div class="row">
+						
+							<div class="col-md-6 grid-margin stretch-card">
+								<div class="card">
+									<div class="card-body">
+										<h4 class="card-title">Chi tiết chính sản phẩm</h4>
+										<p class="card-description"> Basic form layout </p>
+										<div class="form-group">
+											<label for="nameProduct">Tên sản phẩm</label>
+											<input type="text" class="form-control" id="nameProduct" name="namePhone" field="*{namePhone}">
+										</div>
+										<div class="form-group">
+											<label for="nameProduct">Ảnh sản phẩm</label>
+											<input type="file" class="form-control"  name="file" id="file" required="required">
+										</div>
+										<div class="form-group">
+											<label for="price">Giá hiện tại</label>
+											<input type="number" class="form-control" id="price" name="price" field="*{price}">
+										</div>
+										<div class="form-group">
+											<label for="priceSale">Giá sale</label>
+											<input type="number" class="form-control" id="priceSale" name="priceSale name=""" field="*{priceSale}">
+										</div>
+										<div class="form-group">
+											<label for="shortdescription">Mô tả ngắn</label> <br>
+											<textarea class="shortdescription mt-2 short-them" name="shortdescription" rows="4" cols="50" field="*{shortdescription}">
+											</textarea>
+										</div>
+										<div class="form-group">
+											<label for="description">Mô tả</label> <br>
+											<textarea class="description mt-2 short-them" name="description" rows="4" cols="50" field="*{description}">
+											</textarea>
+										</div>
+										<button type="submit" class="btn btn-primary mr-2">Lưu</button>									
+									</div>
+								</div>
+							</div>
+							<div class="col-md-6 grid-margin stretch-card">
+								<div class="card">
+									<div class="card-body">
+										<h4 class="card-title">Thông tin sản phẩm</h4>
+										<p class="card-description"> Horizontal form layout </p>
+										<div class="form-group row">
+											<label for="screen" class="col-sm-3 col-form-label">Màn hình</label>
+											<div class="col-sm-9">
+												<input type="text" class="form-control" id="screen" name="screen" field="*{screen}">
+											</div>
+										</div>
+										<div class="form-group row">
+											<label for="resolution" class="col-sm-3 col-form-label">Độ phân giải</label>
+											<div class="col-sm-9">
+												<input type="text" class="form-control" id="resolution" name="resolution" field="*{resolution}">
+											</div>
+										</div>
+										<div class="form-group row">
+											<label for="widescreen" class="col-sm-3 col-form-label">Màn hình rộng</label>
+											<div class="col-sm-9">
+												<input type="text" class="form-control" id="widescreen" name="widescreen" field="*{widescreen}">
+											</div>
+										</div>
+										<div class="form-group row">
+											<label for="system" class="col-sm-3 col-form-label">Hệ điều hành</label>
+											<div class="col-sm-9">
+												<input type="text" class="form-control" id="system" name="system" field="*{system}">
+											</div>
+										</div>
+										<div class="form-group row">
+											<label for="cpu" class="col-sm-3 col-form-label">CPU</label>
+											<div class="col-sm-9">
+												<input type="text" class="form-control" id="cpu" name="cpu" field="*{cpu}">
+											</div>
+										</div>
+										<div class="form-group row">
+											<label for="speedCpu" class="col-sm-3 col-form-label">Tốc độ CPU</label>
+											<div class="col-sm-9">
+												<input type="text" class="form-control" id="speedCpu" name="speedCpu" field="*{speedCpu}">
+											</div>
+										</div>
+										<div class="form-group row">
+											<label for="gpuGrapphics" class="col-sm-3 col-form-label">Chip đồ họa</label>
+											<div class="col-sm-9">
+												<input type="text" class="form-control" id="gpuGrapphics" name="gpuGrapphics" field="*{gpuGrapphics}">
+											</div>
+										</div>
+										<div class="form-group row">
+											<label for="ram" class="col-sm-3 col-form-label">RAM</label>
+											<div class="col-sm-9">
+												<input type="text" class="form-control" id="ram" name="ram" field="*{ram}">
+											</div>
+										</div>
+										<div class="form-group row">
+											<label for="memoryIn" class="col-sm-3 col-form-label">Bộ nhớ trong</label>
+											<div class="col-sm-9">
+												<input type="number" class="form-control" id="memoryIn" name="memoryIn" field="*{memoryIn}">
+											</div>
+										</div>
+										<div class="form-group row">
+											<label for="phoneBook" class="col-sm-3 col-form-label">Danh bạ</label>
+											<div class="col-sm-9">
+												<input type="text" class="form-control" id="phoneBook" name="phoneBook" field="*{phoneBook}">
+											</div>
+										</div>
+										<div class="form-group row">
+											<label for="mobileNetwork" class="col-sm-3 col-form-label">Mạng di động</label>
+											<div class="col-sm-9">
+												<input type="text" class="form-control" id="mobileNetwork" name="mobileNetwork" field="*{mobileNetwork}">
+											</div>
+										</div>
+										<div class="form-group row">
+											<label for="sim" class="col-sm-3 col-form-label">SIM</label>
+											<div class="col-sm-9">
+												<input type="text" class="form-control" id="sim" name="sim" field="*{sim}">
+											</div>
+										</div>
+										<div class="form-group row">
+											<label for="charging" class="col-sm-3 col-form-label">Cổng kết nối/ sạc</label>
+											<div class="col-sm-9">
+												<input type="text" class="form-control" id="charging" name="charging" field="*{charging}">
+											</div>
+										</div>
+										<div class="form-group row">
+											<label for="capacityPin" class="col-sm-3 col-form-label">Dung lượng pin</label>
+											<div class="col-sm-9">
+												<input type="number" class="form-control" id="capacityPin" name="capacityPin" field="*{capacityPin}">
+											</div>
+										</div>
+										<div class="form-group row">
+											<label for="categoryPin" class="col-sm-3 col-form-label">Loại pin</label>
+											<div class="col-sm-9">
+												<input type="text" class="form-control" id="categoryPin" name="categoryPin" field="*{categoryPin}">
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						
+					</div>
+				</form>
+				</div>
+			</div>
+			
+		</div>
+	</div>
+	
+	
+	<script th:src="@{vendors/js/vendor.bundle.base.js}"></script>
+	<script th:src="@{./js/dashboard.js}"></script>
+</body>
+</html>
